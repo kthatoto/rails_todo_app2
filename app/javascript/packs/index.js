@@ -1,8 +1,7 @@
-import Vue from 'vue'
-import Root from '../pages/root.vue'
+import Vue from 'vue/dist/vue.esm'
+import ComponentWrapper from '../utils/ComponentWrapper'
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({
-    el: '#app',
-    render: h => h(Root)
-  })
+    components: { ComponentWrapper }
+  }).$mount('#app')
 })
