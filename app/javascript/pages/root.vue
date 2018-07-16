@@ -1,7 +1,6 @@
-<template>
-  <div>
-    <p>{{ message }}</p>
-  </div>
+<template lang="pug">
+.root
+  p 123
 </template>
 
 <script>
@@ -14,5 +13,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.root {
+  p {
+    color: red;
+  }
+}
 </style>
