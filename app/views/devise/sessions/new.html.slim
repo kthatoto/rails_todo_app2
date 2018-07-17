@@ -2,12 +2,10 @@ h2
   | Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.label :name
+    = f.text_field :name, autofocus: true, autocomplete: "off"
   .field
     = f.label :password
-    br
     = f.password_field :password, autocomplete: "off"
   - if devise_mapping.rememberable?
     .field
