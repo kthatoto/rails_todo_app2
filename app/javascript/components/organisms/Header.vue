@@ -16,15 +16,17 @@
 </template>
 <script>
 export default {
-  props: ['user'],
   data () {
     return {
+      user: {},
       signedIn: false,
       userName: '',
       showingDropdown: false
     }
   },
   created () {
+    const props = JSON.parse(this.$attrs.data)
+    this.user = props.user
     if (this.user) {
       this.signedIn = true
       this.userName = this.user.name

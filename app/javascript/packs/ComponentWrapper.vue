@@ -1,14 +1,11 @@
 <template lang="pug">
-div
-  Header(:user="data.props.user")
-  component(:is="data.component" :props="data.props")
+component(:is="data.component" :props="data.props")
 </template>
 <script>
 import TasksDashboard from '@/pages/TasksDashboard'
 import UserList from '@/pages/UserList'
-import Header from '@/components/organisms/Header'
 export default {
-  components: { TasksDashboard, UserList, Header },
+  components: { TasksDashboard, UserList },
   data () {
     return {
       data: {}

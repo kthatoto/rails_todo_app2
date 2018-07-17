@@ -8,4 +8,8 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    = yield
+    = javascript_pack_tag 'index'
+    = stylesheet_pack_tag 'index'
+    #app
+      = content_tag 'vue-header', nil, data: { user: @props[:user] }.to_json
+      = yield
