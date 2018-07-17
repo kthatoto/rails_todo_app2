@@ -7,4 +7,7 @@ class User < ApplicationRecord
   def email_required?
     false
   end
+  def will_save_change_to_email?
+    false
+  end
 end
