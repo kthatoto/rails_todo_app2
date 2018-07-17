@@ -2,4 +2,4 @@
 = stylesheet_pack_tag 'index'
 #app
   = content_tag 'component-wrapper', nil,
-    data: { component: 'tasks-dashboard', props: { tasks: @tasks } }.to_json
+    data: { component: @component_name, props: @props }.to_json

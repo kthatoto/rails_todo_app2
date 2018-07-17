@@ -1,14 +1,16 @@
 <template lang="pug">
 .tasksDashboard
-  p(v-for="task in tasks") {{ task }}
 </template>
 
 <script>
 export default {
-  props: ['tasks'],
+  props: ['data'],
   data () {
     return {
     }
+  },
+  created () {
+    console.log(this.data)
   }
 }
 </script>

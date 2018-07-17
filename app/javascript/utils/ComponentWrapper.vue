@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   Header
-  component(:is="data.component" v-bind="data.props")
+  component(:is="data.component" :props="data.props")
 </template>
 <script>
 import TasksDashboard from '@/pages/TasksDashboard'
