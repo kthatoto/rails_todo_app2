@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  Header
+  Header(:user="data.props.user")
   component(:is="data.component" :props="data.props")
 </template>
 <script>
@@ -24,6 +24,9 @@ export default {
   margin: 0;
   padding: 0;
   list-style: none;
+  text-decoration: none;
+}
+a, a:visited {
+  color: inherit;
 }
 </style>
-
