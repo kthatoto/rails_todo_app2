@@ -2,11 +2,17 @@
 .header
   .header__user
     div(v-if="signedIn")
-      p.header__userLabel(@click="showingDropdown = !showingDropdown") {{ userName }}
+      p.header__userLabel(@click="showingDropdown = !showingDropdown")
+        | {{ userName }}
+        icon.icon(name="angle-down")
       .dropdown(v-show="showingDropdown")
-        a(href="/users/sign_out", data-method="delete") Sign out
+        ul
+          li.dropdown__item
+            a(href="/users/sign_out", data-method="delete") Sign out
     div(v-else)
-      a(href="/users/sign_in") Sign in
+      a.header__signin(href="/users/sign_in")
+        | Sign in
+        icon.icon(name="user")
 </template>
 <script>
 export default {
@@ -35,18 +41,33 @@ export default {
     float: right;
     margin: 15px 0;
     margin-right: 30px;
-    padding: 0 20px;
     height: 30px;
     line-height: 30px;
     vertical-align: middle;
     position: relative;
     background-color: #555;
+    &Label {
+      padding: 0 20px;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        background-color: #777;
+      }
+    }
+  }
+  &__signin {
+    display: inline-block;
+    color: white;
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
     &:hover {
       background-color: #777;
     }
-    &Label {
-      color: white;
-      cursor: pointer;
+    .icon {
+      vertical-align: baseline;
+      width: 13px;
+      height: 13px;
     }
   }
 }
@@ -57,8 +78,15 @@ export default {
   width: 150px;
   top: 30px;
   right: 0;
-  a {
+  &__item {
     color: black;
+    a {
+      display: block;
+      padding: 5px 10px;
+      &:hover {
+        background-color: #eee;
+      }
+    }
   }
 }
 </style>

@@ -27,7 +27,8 @@ export default {
   text-decoration: none;
   box-sizing: border-box;
 }
-a, a:visited {
-  color: inherit;
+.icon {
+  vertical-align: text-bottom;
+  margin: 0 5px;
 }
 </style>
