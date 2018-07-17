@@ -1,22 +1,21 @@
 <template lang="pug">
-.root
-  p 123
+.tasksDashboard
 </template>
 
 <script>
 export default {
+  props: ['tasks'],
   data () {
     return {
-      message: "Hello Vue!"
     }
+  },
+  created () {
+    console.log(this.tasks)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.root {
-  p {
-    color: red;
-  }
+.tasksDashboard {
 }
 </style>
