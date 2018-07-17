@@ -1,10 +1,14 @@
-<template>
-  <component :is="data.component" v-bind="data.props"/>
+<template lang="pug">
+div
+  Header
+  component(:is="data.component" v-bind="data.props")
 </template>
 <script>
 import TasksDashboard from '@/pages/TasksDashboard'
+import UserList from '@/pages/UserList'
+import Header from '@/components/organisms/Header'
 export default {
-  components: { TasksDashboard },
+  components: { TasksDashboard, UserList, Header },
   data () {
     return {
       data: {}

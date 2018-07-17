@@ -1,11 +1,10 @@
 <template lang="pug">
-.tasksDashboard
-  p(v-for="task in tasks") {{ task }}
+.userList
 </template>
 
 <script>
 export default {
-  props: ['tasks'],
+  props: ['users'],
   data () {
     return {
     }
@@ -14,6 +13,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tasksDashboard {
+.userList {
 }
 </style>
