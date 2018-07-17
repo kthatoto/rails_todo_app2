@@ -10,10 +10,17 @@
   .field {
     margin-bottom: 10px;
     input {
-      padding: 5px 10px;
-      font-size: 18px;
+      padding: 10px;
+      font-size: 1.3rem;
       &[type=text], &[type=password] {
         width: 100%;
+        border-style: none;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        &:focus {
+          border-color: #5cb3fd;
+          outline: 0;
+        }
       }
       &[type=checkbox] {
         margin-right: 5px;
