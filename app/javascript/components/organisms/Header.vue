@@ -1,5 +1,8 @@
 <template lang="pug">
-.header
+.header.-weight
+  .header__links
+    a(href="/") Dashboard
+    a(href="/users") User List
   .header__user
     div(v-if="signedIn")
       p.header__userLabel(@click="showingDropdown = !showingDropdown")
@@ -39,6 +42,9 @@ export default {
   width: 100%;
   background-color: #333;
   height: 60px;
+  &__links {
+    float: left;
+  }
   &__user {
     float: right;
     margin: 15px 0;
