@@ -1,8 +1,9 @@
 <template lang="pug">
 .header.-weight
+  .header__logo
   .header__links
-    a(href="/") Dashboard
-    a(href="/users") User List
+    a.header__link(href="/") Dashboard
+    a.header__link(href="/users") User List
   .header__user
     div(v-if="signedIn")
       p.header__userLabel(@click="showingDropdown = !showingDropdown")
@@ -38,12 +39,30 @@ export default {
 }
 </script>
 <style lang="scss">
+$headerHeight: 60px;
 .header {
   width: 100%;
   background-color: #333;
-  height: 60px;
+  height: $headerHeight;
+  &__logo {
+    float: left;
+    width: $headerHeight;
+    height: $headerHeight;
+  }
   &__links {
     float: left;
+    height: 100%;
+  }
+  &__link {
+    height: 100%;
+    padding: 0 15px;
+    color: white;
+    display: inline-block;
+    line-height: $headerHeight;
+    &:hover {
+      color: #ddd;
+      background-color: #444;
+    }
   }
   &__user {
     float: right;
