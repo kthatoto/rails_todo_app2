@@ -4,13 +4,10 @@
 
 <script>
 export default {
-  props: ['data'],
+  props: ['props'],
   data () {
     return {
     }
-  },
-  created () {
-    console.log(this.data)
   }
 }
 </script>
