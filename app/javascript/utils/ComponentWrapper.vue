@@ -2,7 +2,7 @@
   <component :is="data.component" v-bind="data.props"/>
 </template>
 <script>
-import TasksDashboard from '../pages/TasksDashboard'
+import TasksDashboard from '@/pages/TasksDashboard'
 export default {
   components: { TasksDashboard },
   data () {

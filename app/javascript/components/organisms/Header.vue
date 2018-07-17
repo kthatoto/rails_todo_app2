@@ -10,6 +10,6 @@ export default {
 .header {
   width: 100%;
   background-color: #333;
-  height: 80px;
+  height: 60px;
 }
 </style>
