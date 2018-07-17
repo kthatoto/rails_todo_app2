@@ -3,7 +3,7 @@
   .header__logo
   .header__links
     a.header__link(href="/") Dashboard
-    a.header__link(href="/users") User List
+    a.header__link(href="/users" v-if="signedIn") User List
   .header__user
     div(v-if="signedIn")
       p.header__userLabel(@click="showingDropdown = !showingDropdown")
