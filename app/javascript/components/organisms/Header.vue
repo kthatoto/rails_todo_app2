@@ -12,9 +12,9 @@
       .dropdown(v-show="showingDropdown")
         ul
           li.dropdown__item
-            a(href="/users/sign_out", data-method="delete") Sign out
+            a(href="/signout", data-method="delete") Sign out
     div(v-else)
-      a.header__signin(href="/users/sign_in")
+      a.header__signin(href="/signin")
         | Sign in
         icon.icon(name="user")
 </template>
