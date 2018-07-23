@@ -5,14 +5,24 @@
     span.taskItem__id {{ `(#${task.id})` }}
   task-item-row(type="Assignees", :tags="task.assignees")
   task-item-row(type="Labels", :tags="task.labels")
-  last-updated.taskItem__updated(:updated="task.timestamps.updated_at")
+  .taskItem__bottom
+    last-updated.taskItem__updated(:updated="task.timestamps.updated_at")
+    .buttons
+      Button(:body="buttonBody()")
+      Button(body="Edit")
 </template>
 <script>
 import TaskItemRow from '@/components/molecules/TaskItemRow'
 import LastUpdated from '@/components/atoms/LastUpdated'
+import Button from '@/components/atoms/Button'
 export default {
-  components: { TaskItemRow, LastUpdated },
-  props: ['task']
+  components: { TaskItemRow, LastUpdated, Button },
+  props: ['task'],
+  methods: {
+    buttonBody () {
+      return {todo: 'DONE', done: 'TODO'}[this.task.status]
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -30,6 +40,24 @@ export default {
     margin-left: 5px;
     color: #999;
     font-size: 1.2rem;
+  }
+  &__bottom {
+    overflow: hidden;
+    position: relative;
+  }
+  &__updated {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+.buttons {
+  float: right;
+  overflow: hidden;
+  >>> .button {
+    width: 60px;
+    margin: 0 3px;
+    float: right;
   }
 }
 </style>
