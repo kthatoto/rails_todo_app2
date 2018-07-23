@@ -3,9 +3,9 @@ class PagesController < ApplicationController
   # before_action :render_vue
 
   def tasks_dashboard
-    tasks = Task.all.recently_updated
-    @props[:todos] = tasks.where(status: :todo)
-    @props[:dones] = tasks.where(status: :done)
+    tasks = Task.all.recently_updated.includes(:assignees)
+    @props[:todos] = tasks.where(status: :todo).map(&:json)
+    @props[:dones] = tasks.where(status: :done).map(&:json)
     render_vue
   end
   def user_list
