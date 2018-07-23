@@ -1,6 +1,9 @@
 /*
  *= require_self
  */
+#app {
+  min-width: 600px;
+}
 .devise {
   width: 300px;
   margin: 100px auto 0;
