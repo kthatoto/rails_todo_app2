@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
 
+  has_many :assignments, dependent: :destroy
+  has_many :tasks, through: :assignments,
+
   def email_required?
     false
   end
