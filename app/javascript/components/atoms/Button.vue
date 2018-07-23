@@ -1,5 +1,7 @@
 <template lang="pug">
-.button(@click="proc ? proc : none") {{ body }}
+.button(@click="proc ? proc : none")
+  span(v-if="body") {{ body }}
+  slot(v-else)
 </template>
 <script>
 export default {

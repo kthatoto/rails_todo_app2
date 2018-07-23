@@ -2,7 +2,9 @@
 .tasksDashboard
   .taskConsole
     .taskConsole__buttons
-      Button(body="Create New Task")
+      Button
+        icon(name="plus" class="icon")
+        | Create New Task
       Button(body="Filter Tasks")
   .taskLists
     task-list.taskList(type="todo" :tasks="props.todos")
