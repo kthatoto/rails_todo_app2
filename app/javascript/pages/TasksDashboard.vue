@@ -18,9 +18,9 @@ export default {
 }
 .taskLists {
   margin: auto;
-  max-width: 1200px;
+  max-width: 900px;
+  min-width: 650px;
   display: flex;
-  padding: 0 100px;
 }
 .taskList {
   width: 50%;
