@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :rememberable, :trackable, :validatable
 
   has_many :assignments, dependent: :destroy
-  has_many :tasks, through: :assignments,
+  has_many :tasks, through: :assignments
 
   def email_required?
     false

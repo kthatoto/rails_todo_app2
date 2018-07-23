@@ -6,7 +6,7 @@ class Task < ApplicationRecord
   has_many :assignees, through: :assignments,
     class_name: 'User', foreign_key: 'user_id'
 
-  has_many :task_labels, destroy: :destroy
+  has_many :task_labels, dependent: :destroy
   has_many :labels, through: :task_labels
 
   scope :recently_updated, -> { order(updated_at: :desc) }
