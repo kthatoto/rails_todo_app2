@@ -3,7 +3,7 @@
   .taskConsole
     .taskConsole__buttons
       Button
-        icon(name="plus" class="icon -left")
+        icon.icon.-left(name="plus")
         | Create New Task
       Button
         | Filter Tasks
