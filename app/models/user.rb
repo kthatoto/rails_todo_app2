@@ -7,6 +7,18 @@ class User < ApplicationRecord
   has_many :assignments, dependent: :destroy
   has_many :tasks, through: :assignments
 
+  def json
+    {
+      id: id,
+      name: name,
+      timestamps: {
+        created_at: created_at,
+        updated_at: updated_at
+      }
+    }
+  end
+
+  # these two methods are for devise
   def email_required?
     false
   end

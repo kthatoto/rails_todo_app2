@@ -11,4 +11,17 @@ class Task < ApplicationRecord
 
   scope :recently_updated, -> { order(updated_at: :desc) }
   enum status: {todo: 0, done: 1}
+
+  def json
+    {
+      id: id,
+      content: content,
+      status: status,
+      timestamps: {
+        created_at: created_at,
+        updated_at: updated_at
+      },
+      assignees: assignees.map(&:json)
+    }
+  end
 end
