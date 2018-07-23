@@ -2,8 +2,12 @@
 .header.-weight
   .header__logo
   .header__links
-    a.header__link(href="/") Dashboard
-    a.header__link(href="/users" v-if="signedIn") User List
+    a.header__link(href="/")
+      icon.icon.-left(name="columns")
+      | Dashboard
+    a.header__link(href="/users" v-if="signedIn")
+      icon.icon.-left(name="users")
+      | User List
   .header__user
     div(v-if="signedIn")
       p.header__userLabel(@click="showingDropdown = !showingDropdown")
