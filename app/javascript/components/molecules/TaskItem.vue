@@ -3,19 +3,15 @@
   .taskItem__content
     | {{ task.content }}
     span.taskItem__id {{ `(#${task.id})` }}
-  .taskItem__info
-    .taskItem__infoLabel Assignees:
-    .taskItem__tags
-      Tag(v-for="assignee in task.assignees" :body="assignee.name")
-  .taskItem__info
-    .taskItem__infoLabel Labels:
-    .taskItem__tags
-      Tag(v-for="label in task.labels" :body="label.name")
+  task-item-row(type="Assignees", :tags="task.assignees")
+  task-item-row(type="Labels", :tags="task.labels")
+  last-updated.taskItem__updated(:updated="task.timestamps.updated_at")
 </template>
 <script>
-import Tag from '@/components/atoms/Tag'
+import TaskItemRow from '@/components/molecules/TaskItemRow'
+import LastUpdated from '@/components/atoms/LastUpdated'
 export default {
-  components: { Tag },
+  components: { TaskItemRow, LastUpdated },
   props: ['task']
 }
 </script>
@@ -27,30 +23,13 @@ export default {
   border-radius: 5px;
   &__content {
     margin-bottom: 5px;
+    font-size: 1.6rem;
   }
   &__id {
     display: inline-block;
     margin-left: 5px;
     color: #999;
-    font-size: small;
-  }
-  $infoLabelWidth: 75px;
-  &__info {
-    font-size: small;
-    margin-bottom: 5px;
-    overflow: hidden;
-    &Label {
-      width: $infoLabelWidth;
-      float: left;
-      font-size: inherit;
-      text-align: right;
-      padding-right: 5px;
-    }
-  }
-  &__tags {
-    font-size: inherit;
-    float: left;
-    width: calc(100% - #{$infoLabelWidth});
+    font-size: 1.2rem;
   }
 }
 </style>

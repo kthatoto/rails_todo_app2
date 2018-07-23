@@ -6,6 +6,7 @@ html {
 }
 #app {
   min-width: 600px;
+  font-size: 1.4rem;
 }
 .devise {
   width: 300px;
@@ -17,7 +18,7 @@ html {
     margin-bottom: 10px;
     input {
       padding: 10px;
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       &[type=text], &[type=password] {
         width: 100%;
         border-style: none;
@@ -41,7 +42,7 @@ html {
     input[type=submit] {
       margin: 0 auto;
       padding: 10px 15px;
-      font-size: 16px;
+      font-size: 1.6rem;
       background-color: #4CAF50;
       color: white;
       border-style: none;
