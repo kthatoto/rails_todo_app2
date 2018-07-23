@@ -4,7 +4,7 @@ class Task < ApplicationRecord
 
   has_many :assignments, dependent: :destroy
   has_many :assignees, through: :assignments,
-    class_name: 'User', foreign_key: 'user_id'
+    class_name: 'User', foreign_key: 'user_id', source: :user
 
   has_many :task_labels, dependent: :destroy
   has_many :labels, through: :task_labels
