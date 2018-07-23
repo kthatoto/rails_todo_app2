@@ -3,9 +3,10 @@
   .taskConsole
     .taskConsole__buttons
       Button
-        icon(name="plus" class="icon")
+        icon(name="plus" class="icon -left")
         | Create New Task
-      Button(body="Filter Tasks")
+      Button
+        | Filter Tasks
   .taskLists
     task-list.taskList(type="todo" :tasks="props.todos")
     task-list.taskList(type="done" :tasks="props.dones")

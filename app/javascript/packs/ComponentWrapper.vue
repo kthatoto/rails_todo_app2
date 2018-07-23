@@ -16,7 +16,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 * {
   margin: 0;
   padding: 0;
@@ -29,6 +29,24 @@ a {
 }
 .icon {
   vertical-align: text-bottom;
-  margin: 0 5px;
+  width: 1.4rem;
+  height: 1.4rem;
+
+  &.-left {
+    margin-right: 5px;
+  }
+  &.-right {
+    margin-left: 5px;
+  }
+
+  &.-small {
+    width: 1rem;
+    height: 1rem;
+    vertical-align: unset;
+  }
+  &.-large {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 </style>

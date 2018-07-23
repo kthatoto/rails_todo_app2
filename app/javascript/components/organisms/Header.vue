@@ -8,7 +8,7 @@
     div(v-if="signedIn")
       p.header__userLabel(@click="showingDropdown = !showingDropdown")
         | {{ userName }}
-        icon.icon(name="angle-down")
+        icon.icon.-right(name="angle-down")
       .dropdown(v-show="showingDropdown")
         ul
           li.dropdown__item
@@ -16,7 +16,7 @@
     div(v-else)
       a.header__signin(href="/signin")
         | Sign in
-        icon.icon(name="user")
+        icon.icon.-right(name="user")
 </template>
 <script>
 export default {
@@ -90,11 +90,6 @@ $headerHeight: 60px;
     line-height: 30px;
     &:hover {
       background-color: #777;
-    }
-    .icon {
-      vertical-align: baseline;
-      width: 13px;
-      height: 13px;
     }
   }
 }
