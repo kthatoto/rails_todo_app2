@@ -2,10 +2,11 @@
 .tasksDashboard
   .taskConsole
     .taskConsole__buttons
-      Button
+      Button.button
         icon.icon.-left(name="plus")
         | Create New Task
-      Button
+      Button.button
+        icon.icon.-left(name="search")
         | Filter Tasks
   .taskLists
     task-list.taskList(type="todo" :tasks="props.todos")
@@ -30,6 +31,11 @@ export default {
 }
 .taskConsole {
   margin-bottom: 30px;
+  &__buttons {
+    .button:nth-child(2) {
+      margin-left: 5px;
+    }
+  }
 }
 .taskLists {
   display: flex;
