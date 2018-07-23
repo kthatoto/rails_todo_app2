@@ -1,10 +1,15 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:user_list]
-  before_action :render_vue
+  # before_action :render_vue
 
   def tasks_dashboard
+    tasks = Task.all.recently_updated
+    @props[:todos] = tasks.where(status: :todo)
+    @props[:dones] = tasks.where(status: :done)
+    render_vue
   end
   def user_list
+    render_vue
   end
   private
     def render_vue
