@@ -21,7 +21,8 @@ class Task < ApplicationRecord
         created_at: created_at,
         updated_at: updated_at
       },
-      assignees: assignees.map(&:json)
+      assignees: assignees.map(&:json),
+      labels: labels.map(&:json)
     }
   end
 end
