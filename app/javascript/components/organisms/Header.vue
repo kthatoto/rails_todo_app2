@@ -12,11 +12,13 @@
     div(v-if="signedIn")
       p.header__userLabel(@click="showingDropdown = !showingDropdown")
         | {{ userName }}
-        icon.icon.-right(name="angle-down")
+        icon.icon.-right(name="caret-down")
       .dropdown(v-show="showingDropdown")
         ul
           li.dropdown__item
-            a(href="/signout", data-method="delete") Sign out
+            a(href="/signout", data-method="delete")
+              icon.icon.-left(name="sign-out-alt")
+              | Sign out
     div(v-else)
       a.header__signin(href="/signin")
         | Sign in
