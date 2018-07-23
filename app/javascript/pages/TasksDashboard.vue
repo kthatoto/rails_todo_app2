@@ -1,8 +1,8 @@
 <template lang="pug">
 .tasksDashboard
   .taskLists
-    task-list.taskList(header="TODO" :tasks="props.todos")
-    task-list.taskList(header="DONE" :tasks="props.dones")
+    task-list.taskList(type="todo" :tasks="props.todos")
+    task-list.taskList(type="done" :tasks="props.dones")
 </template>
 
 <script>

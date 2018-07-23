@@ -1,6 +1,6 @@
 <template lang="pug">
 .taskList
-  h2.taskList__header {{ header }}
+  h2.taskList__header {{ type.toUpperCase() }}
   ul.taskList__list
     li(v-for="task in tasks" :key="task.id")
       task-item(:task="task")
@@ -9,7 +9,7 @@
 import TaskItem from '@/components/molecules/TaskItem'
 export default {
   components: { TaskItem },
-  props: ['header', 'tasks']
+  props: ['type', 'tasks']
 }
 </script>
 <style lang="scss" scoped>
