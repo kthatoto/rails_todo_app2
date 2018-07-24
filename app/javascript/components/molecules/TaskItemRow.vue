@@ -2,7 +2,7 @@
 .taskItemRow
   .taskItemRow__label {{ type }}:
   .taskItemRow__tags
-    Tag(v-for="tag in tags" :body="tag.name")
+    Tag(v-for="tag in tags" :key="tag.id" :body="tag.name")
 </template>
 <script>
 import Tag from '@/components/atoms/Tag'
