@@ -10,9 +10,9 @@ const state = {
   dones: []
 }
 const mutations = {
-  [mutationTypes.SET_TASKS] (state, todos, dones) {
-    state.todos = todos
-    state.dones = dones
+  [mutationTypes.SET_TASKS] (state, tasks) {
+    state.todos = tasks.todos
+    state.dones = tasks.dones
   }
 }
 

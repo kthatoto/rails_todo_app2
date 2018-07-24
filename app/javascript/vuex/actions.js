@@ -1,6 +1,6 @@
 import * as mutationTypes from './mutations'
 export default {
-  setTasks ({ commit }, todos, dones) {
-    commit(mutationTypes.SET_TASKS, todos, dones)
+  setTasks ({ commit }, tasks) {
+    commit(mutationTypes.SET_TASKS, tasks)
   }
 }

@@ -15,6 +15,9 @@
 </template>
 
 <script>
+import store from '@/vuex/store'
+import { SET_TASKS } from '@/vuex/mutations'
+
 import NewTaskForm from '@/components/organisms/taskForm/NewTaskForm'
 import TaskList from '@/components/organisms/TaskList'
 import Button from '@/components/atoms/Button'
@@ -27,6 +30,12 @@ export default {
         newTaskForm: true
       }
     }
+  },
+  created () {
+    store.dispatch(SET_TASKS, {
+      todos: this.props.todos,
+      dones: this.props.dones
+    })
   },
   methods: {
     showNewTaskForm () {
