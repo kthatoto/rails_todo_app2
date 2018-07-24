@@ -10,13 +10,14 @@
         | Filter Tasks
     new-task-form.newTaskForm(v-show="showing.newTaskForm")
   .taskLists
-    task-list.taskList(type="todo" :tasks="props.todos")
-    task-list.taskList(type="done" :tasks="props.dones")
+    task-list.taskList(type="todo" :tasks="todos")
+    task-list.taskList(type="done" :tasks="dones
 </template>
 
 <script>
 import store from '@/vuex/store'
 import { SET_TASKS } from '@/vuex/mutations'
+import { mapGetters } from 'vuex'
 
 import NewTaskForm from '@/components/organisms/taskForm/NewTaskForm'
 import TaskList from '@/components/organisms/TaskList'
@@ -24,6 +25,10 @@ import Button from '@/components/atoms/Button'
 export default {
   components: { NewTaskForm, TaskList, Button },
   props: ['props'],
+  computed: mapGetters({
+    todos: 'getTodos',
+    dones: 'getDones'
+  }),
   data () {
     return {
       showing: {
