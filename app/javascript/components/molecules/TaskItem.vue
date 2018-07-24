@@ -8,8 +8,12 @@
   .taskItem__bottom
     last-updated.taskItem__updated(:updated="task.timestamps.updated_at")
     .buttons
-      Button(:body="buttonBody()")
-      Button(body="Edit")
+      Button
+        icon.icon.-left(:name="buttonIcon[task.status]")
+        | {{ button[task.status] }}
+      Button
+        icon.icon.-left(name="edit")
+        | Edit
 </template>
 <script>
 import TaskItemRow from '@/components/molecules/TaskItemRow'
@@ -18,9 +22,16 @@ import Button from '@/components/atoms/Button'
 export default {
   components: { TaskItemRow, LastUpdated, Button },
   props: ['task'],
-  methods: {
-    buttonBody () {
-      return {todo: 'DONE', done: 'TODO'}[this.task.status]
+  data () {
+    return {
+      button: {
+        todo: 'DONE',
+        done: 'TODO'
+      },
+      buttonIcon: {
+        todo: 'check-square',
+        done: 'sticky-note'
+      }
     }
   }
 }
@@ -55,7 +66,7 @@ export default {
   float: right;
   overflow: hidden;
   >>> .button {
-    width: 60px;
+    width: 80px;
     margin: 0 3px;
     float: right;
   }
