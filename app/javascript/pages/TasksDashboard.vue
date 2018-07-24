@@ -8,7 +8,7 @@
       Button.button
         icon.icon.-left(name="search")
         | Filter Tasks
-    task-form.newTaskForm(v-show="showing.newTaskForm")
+    new-task-form.newTaskForm(v-show="showing.newTaskForm")
   .taskLists
     task-list.taskList(type="todo" :tasks="props.todos")
     task-list.taskList(type="done" :tasks="props.dones")
@@ -19,7 +19,7 @@ import NewTaskForm from '@/components/organisms/taskForm/NewTaskForm'
 import TaskList from '@/components/organisms/TaskList'
 import Button from '@/components/atoms/Button'
 export default {
-  components: { TaskForm, TaskList, Button },
+  components: { NewTaskForm, TaskList, Button },
   props: ['props'],
   data () {
     return {
