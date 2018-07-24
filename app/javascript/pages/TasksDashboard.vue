@@ -11,7 +11,7 @@
     new-task-form.newTaskForm(v-show="showing.newTaskForm")
   .taskLists
     task-list.taskList(type="todo" :tasks="todos")
-    task-list.taskList(type="done" :tasks="dones
+    task-list.taskList(type="done" :tasks="dones")
 </template>
 
 <script>
