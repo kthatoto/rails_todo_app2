@@ -15,5 +15,5 @@ const mutations = {
     state.dones = tasks.dones
   }
 }
-
-export default new Vuex.Store({ state, mutations, getters, actions })
+const store = new Vuex.Store({ state, mutations, getters, actions })
+export default store

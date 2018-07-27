@@ -9,6 +9,6 @@ Vue.component('icon', Icon)
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({
     components: { ComponentWrapper, VueHeader },
-    store
+    store: store
   }).$mount('#app')
 })
