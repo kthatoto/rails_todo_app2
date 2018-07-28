@@ -11,7 +11,7 @@
       Button
         icon.icon.-left(:name="buttonIcon[task.status]")
         | {{ button[task.status] }}
-      Button(:proc="editTask(task.id)")
+      Button(v-if="task.status === 'todo'" :proc="editTask(task.id)")
         icon.icon.-left(name="edit")
         | Edit
 </template>

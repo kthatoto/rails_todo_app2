@@ -6,7 +6,7 @@
   ul.taskList__list
     li.taskList__item(v-for="task in tasks" :key="task.id")
       task-item(:task="task" :editTask="editTask")
-      edit-task-form(v-if="task.id === editingTaskId")
+      edit-task-form(v-if="task.status === 'todo' && task.id === editingTaskId")
 </template>
 <script>
 import TaskItem from '@/components/molecules/TaskItem'
