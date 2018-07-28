@@ -46,6 +46,7 @@ export default {
             labels: this.labels
           }
         }).then(response => {
+          console.log(response.data)
         })
       }
     },

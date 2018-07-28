@@ -24,6 +24,11 @@ import Button from '@/components/atoms/Button'
 export default {
   components: { NewTaskForm, TaskList, Button },
   props: ['props'],
+  computed: {
+    ctodos () {
+      return store.getters.getTodos
+    }
+  },
   data () {
     return {
       showing: {
