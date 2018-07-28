@@ -2,18 +2,18 @@
 tr
   th Content
   td
-    input(type=text v-model="newContent")
+    input(type=text v-model="content")
 </template>
 <script>
 export default {
   data () {
     return {
-      newContent: ''
+      content: ''
     }
   },
   watch: {
-    newContent () {
-      this.$emit('update', this.newContent)
+    content () {
+      this.$emit('update', this.content)
     }
   }
 }
