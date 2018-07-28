@@ -12,5 +12,7 @@ export default {
   border-radius: 5px;
   padding: 10px;
   width: 400px;
+  input {
+  }
 }
 </style>
