@@ -1,6 +1,8 @@
 <template lang="pug">
 task-form.editTaskForm
-  h2 Edit Task
+  h2
+    | Edit Task 
+    span.editTaskForm__id {{ `(#${task.id})` }}
   icon.icon.hideButton(name="times" @click.native="hideForm")
   table
     content-row(@update="newContent => content = newContent" :propContent="content")
@@ -46,7 +48,7 @@ export default {
         }
         axios({
           method: 'PUT',
-          url: '/api/tasks',
+          url: '/api/tasks/' + this.task.id,
           data: {
             content: this.content,
             assigneeIds: this.assigneeIds,
@@ -76,6 +78,13 @@ export default {
     top: 10px;
     right: 10px;
     cursor: pointer;
+  }
+  &__id {
+    display: inline-block;
+    margin-left: 5px;
+    color: #999;
+    font-size: 1.1rem;
+    font-weight: normal;
   }
 }
 </style>
