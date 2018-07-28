@@ -13,6 +13,7 @@ tr
 <script>
 import store from '@/vuex/store'
 export default {
+  props: ['propAssigneeIds'],
   data () {
     return {
       assigneeName: '',
@@ -22,13 +23,18 @@ export default {
   },
   created () {
     this.users = store.getters.getUsers
+    if (this.propAssigneeIds) {
+      this.assignees = this.propAssigneeIds.map(assigneeId => {
+        return this.users.find(user => user.id === assigneeId)
+      })
+    }
   },
   methods: {
     addAssignee (e) {
       if (!(e.keyCode === 13) || this.assigneeName.length === 0) {
         return
       }
-      const targetUser = this.users.filter(user => user.name === this.assigneeName)[0]
+      const targetUser = this.users.find(user => user.name === this.assigneeName)
       if (!targetUser) {
         alert('User not found')
         return

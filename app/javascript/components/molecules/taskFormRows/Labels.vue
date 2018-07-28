@@ -13,6 +13,7 @@ tr
 <script>
 import store from '@/vuex/store'
 export default {
+  props: ['propLabels'],
   data () {
     return {
       labelName: '',
@@ -22,6 +23,9 @@ export default {
   },
   created () {
     this.labels = store.getters.getLabels
+    if (this.propLabels) {
+      this.addingLabels = this.propLabels
+    }
   },
   methods: {
     addLabel (e) {

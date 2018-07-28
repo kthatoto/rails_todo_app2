@@ -3,9 +3,9 @@ task-form.editTaskForm
   h2 Edit Task
   icon.icon.hideButton(name="times" @click.native="hideForm")
   table
-    content-row(@update="newContent => content = newContent")
-    assignees-row(@update="newIds => assigneeIds = newIds")
-    labels-row(@update="newLabels => labels = newLabels")
+    content-row(@update="newContent => content = newContent" :propContent="content")
+    assignees-row(@update="newIds => assigneeIds = newIds" :propAssigneeIds="assigneeIds")
+    labels-row(@update="newLabels => labels = newLabels" :propLabels="labels")
   .buttons
     Button(:proc="updateTask()" body="Update")
 </template>
@@ -19,12 +19,19 @@ import Button from '@/components/atoms/Button'
 import axios from 'axios'
 export default {
   components: { TaskForm, ContentRow, AssigneesRow, LabelsRow, Button },
+  props: ['task'],
   data () {
     return {
       content: '',
       assigneeIds: [],
       labels: []
     }
+  },
+  created () {
+    const task = this.task
+    this.content = task.content
+    this.assigneeIds = task.assignees.map(assignee => assignee.id)
+    this.labels = task.labels.map(label => label.name)
   },
   methods: {
     updateTask () {

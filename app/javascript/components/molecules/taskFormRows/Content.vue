@@ -6,9 +6,15 @@ tr
 </template>
 <script>
 export default {
+  props: ['propContent'],
   data () {
     return {
       content: ''
+    }
+  },
+  created () {
+    if (this.propContent) {
+      this.content = this.propContent
     }
   },
   watch: {
