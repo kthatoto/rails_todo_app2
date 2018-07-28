@@ -5,12 +5,14 @@
     | {{ header[type] }}
   ul.taskList__list
     li(v-for="task in tasks" :key="task.id")
-      task-item(:task="task")
+      task-item(:task="task" :editTask="editTask")
+      edit-task-form(v-if="task.id === editingTaskId")
 </template>
 <script>
 import TaskItem from '@/components/molecules/TaskItem'
+import EditTaskForm from '@/components/organisms/taskForms/EditTaskForm'
 export default {
-  components: { TaskItem },
+  components: { TaskItem, EditTaskForm },
   props: ['type', 'tasks'],
   data () {
     return {
@@ -21,6 +23,14 @@ export default {
       icon: {
         todo: 'sticky-note',
         done: 'check-square'
+      },
+      editingTaskId: 0
+    }
+  },
+  methods: {
+    editTask (taskId) {
+      return () => {
+        this.editingTaskId = taskId
       }
     }
   }
