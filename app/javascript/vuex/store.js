@@ -19,7 +19,10 @@ const mutations = {
     state.labels = data.labels
   },
   [mutationTypes.CREATE_TASK] (state, task) {
-    state.todo.unshift(task)
+    state.todos = [
+      task,
+      ...state.todos
+    ]
   }
 }
 const store = new Vuex.Store({ state, mutations, getters, actions })

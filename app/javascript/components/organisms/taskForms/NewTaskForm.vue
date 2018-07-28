@@ -10,6 +10,9 @@ task-form.newTaskForm
     Button(:proc="createTask()" body="Create")
 </template>
 <script>
+import store from '@/vuex/store'
+import { CREATE_TASK } from '@/vuex/mutations'
+
 import TaskForm from '@/components/molecules/Form'
 import ContentRow from '@/components/molecules/taskFormRows/Content'
 import AssigneesRow from '@/components/molecules/taskFormRows/Assignees'
@@ -46,7 +49,7 @@ export default {
             labels: this.labels
           }
         }).then(response => {
-          console.log(response.data)
+          store.dispatch(CREATE_TASK, response.data.task)
         })
       }
     },
