@@ -41,7 +41,7 @@ class Api::TasksController < ApplicationController
       render json: {error: :update_failed}, status: 400
     end
   end
-  def destory
+  def destroy
     task = Task.find(params[:id])
     task.destroy
     render json: nil, status: 204

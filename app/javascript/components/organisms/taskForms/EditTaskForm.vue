@@ -9,6 +9,7 @@ task-form.editTaskForm
     assignees-row(@update="newIds => assigneeIds = newIds" :propAssigneeIds="assigneeIds")
     labels-row(@update="newLabels => labels = newLabels" :propLabels="labels")
   .buttons
+    Button(:proc="deleteTask()" body="Delete")
     Button(:proc="updateTask()" body="Update")
 </template>
 <script>
@@ -56,6 +57,17 @@ export default {
           }
         }).then(response => {
         })
+      }
+    },
+    deleteTask () {
+      return () => {
+        if (window.confirm('Do you really want to DELETE this task?')) {
+          axios({
+            method: 'DELETE',
+            url: '/api/tasks/' + this.task.id
+          }).then(response => {
+          })
+        }
       }
     },
     hideForm () {
