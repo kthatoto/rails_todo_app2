@@ -13,9 +13,9 @@ import store from '@/vuex/store'
 export default {
   data () {
     return {
+      assigneeName: '',
       users: [],
-      assignees: [],
-      assigneeName: ''
+      assignees: []
     }
   },
   created () {
