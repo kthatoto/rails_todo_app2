@@ -5,6 +5,7 @@ task-form.newTaskForm
     content-row(@update="newContent => content = newContent")
     assignees-row(@update="newIds => assigneeIds = newIds")
     labels-row(@update="newLabels => labels = newLabels")
+  .buttons
     Button(:proc="createTask()" body="Create")
 </template>
 <script>
