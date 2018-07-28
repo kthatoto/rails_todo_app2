@@ -7,12 +7,14 @@ import * as mutationTypes from './mutations'
 Vue.use(Vuex)
 const state = {
   todos: [],
-  dones: []
+  dones: [],
+  users: []
 }
 const mutations = {
-  [mutationTypes.SET_TASKS] (state, tasks) {
-    state.todos = tasks.todos
-    state.dones = tasks.dones
+  [mutationTypes.SET_ALL] (state, data) {
+    state.todos = data.todos
+    state.dones = data.dones
+    state.users = data.users
   }
 }
 const store = new Vuex.Store({ state, mutations, getters, actions })

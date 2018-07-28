@@ -4,5 +4,8 @@ export default {
   },
   getDones (state) {
     return state.dones
+  },
+  getUsers (state) {
+    return state.users
   }
 }
