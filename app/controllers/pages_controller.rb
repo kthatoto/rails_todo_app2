@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     tasks = Task.all.recently_updated.includes(:assignees)
     @props[:todos] = tasks.where(status: :todo).map(&:json)
     @props[:dones] = tasks.where(status: :done).map(&:json)
+    @props[:labels] = Label.all.map(&:json)
     render_vue
   end
   def user_list
