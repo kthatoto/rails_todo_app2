@@ -1,6 +1,6 @@
 <template lang="pug">
 task-form.newTaskForm
-  h2 New Task({{ content }})
+  h2 New Task
   table
     content-row(@update="newContent => content = newContent")
 </template>
