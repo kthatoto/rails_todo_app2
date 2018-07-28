@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
   def init_props
     @props = {}
     @props[:user] = current_user
+    @props[:users] = User.all.map(&:json)
   end
 end
