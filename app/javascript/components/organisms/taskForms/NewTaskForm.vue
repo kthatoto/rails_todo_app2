@@ -1,6 +1,7 @@
 <template lang="pug">
 task-form.newTaskForm
   h2 New Task
+  icon.icon.hideButton(name="times" @click.native="hideForm")
   table
     content-row(@update="newContent => content = newContent")
     assignees-row(@update="newIds => assigneeIds = newIds")
@@ -47,11 +48,23 @@ export default {
         }).then(response => {
         })
       }
+    },
+    hideForm () {
+      this.$parent.showing.newTaskForm = false
     }
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .newTaskForm {
+  position: relative;
+  .hideButton {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 }
 </style>
