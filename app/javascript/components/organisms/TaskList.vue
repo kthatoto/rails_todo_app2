@@ -4,7 +4,7 @@
     icon.icon.-left.-large(:name="icon[type]")
     | {{ header[type] }}
   ul.taskList__list
-    li(v-for="task in tasks" :key="task.id")
+    li.taskList__item(v-for="task in tasks" :key="task.id")
       task-item(:task="task" :editTask="editTask")
       edit-task-form(v-if="task.id === editingTaskId")
 </template>
@@ -48,6 +48,9 @@ export default {
     border: 1px solid #333;
     border-top: none;
     padding: 10px;
+  }
+  &__item {
+    margin-bottom: 10px;
   }
 }
 </style>

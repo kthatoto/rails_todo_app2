@@ -11,7 +11,7 @@
       Button
         icon.icon.-left(:name="buttonIcon[task.status]")
         | {{ button[task.status] }}
-      Button
+      Button(:proc="editTask(task.id)")
         icon.icon.-left(name="edit")
         | Edit
 </template>
@@ -21,7 +21,7 @@ import LastUpdated from '@/components/atoms/LastUpdated'
 import Button from '@/components/atoms/Button'
 export default {
   components: { TaskItemRow, LastUpdated, Button },
-  props: ['task'],
+  props: ['task', 'editTask'],
   data () {
     return {
       button: {
@@ -39,7 +39,6 @@ export default {
 <style lang="scss" scoped>
 .taskItem {
   background-color: #eee;
-  margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
   &__content {
