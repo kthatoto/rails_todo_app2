@@ -21,6 +21,7 @@ export default {
     vertical-align: top;
   }
   input {
+    margin-bottom: 5px;
     padding: 5px;
     font-size: 1.4rem;
     border: 1px solid #ccc;

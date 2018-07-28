@@ -6,7 +6,9 @@ tr
     datalist(id="assigneeList")
       option(v-for="user in users" :key="user.id" :value="user.name")
     ul
-      li(v-for="assignee in assignees" :key="assignee.id") {{ assignee.name }}
+      li(v-for="(assignee, i) in assignees" :key="assignee.id" class="assignees__item")
+        | {{ assignee.name }}
+        icon.icon(name="times" @click.native="removeAssignee(i)")
 </template>
 <script>
 import store from '@/vuex/store'
@@ -37,6 +39,9 @@ export default {
       }
       this.assignees.push(targetUser)
       this.assigneeName = ''
+    },
+    removeAssignee (i) {
+      this.assignees.splice(i, 1)
     }
   },
   watch: {
@@ -47,4 +52,20 @@ export default {
 }
 </script>
 <style lang="scss">
+.assignees {
+  &__item {
+    display: inline-block;
+    padding: 0 5px;
+    background-color: #555;
+    color: white;
+    border-radius: 3px;
+    margin: 0 3px 3px 0;
+  }
+}
+.icon {
+  cursor: pointer;
+  border-left: 1px solid white;
+  margin-left: 3px;
+  padding-left: 5px;
+}
 </style>

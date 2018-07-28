@@ -6,7 +6,9 @@ tr
     datalist(id="labelList")
       option(v-for="label in labels" :key="label.id" :value="label.name")
     ul
-      li(v-for="label in addingLabels" :key="label") {{ label }}
+      li(v-for="(label, i) in addingLabels" :key="label" class="labels__item")
+        | {{ label }}
+        icon.icon(name="times" @click.native="removeLabel(i)")
 </template>
 <script>
 import store from '@/vuex/store'
@@ -33,6 +35,9 @@ export default {
       this.addingLabels.push(this.labelName)
       console.log(this.addingLabels)
       this.labelName = ''
+    },
+    removeLabel (i) {
+      this.addingLabels.splice(i, 1)
     }
   },
   watch: {
@@ -43,4 +48,20 @@ export default {
 }
 </script>
 <style lang="scss">
+.labels {
+  &__item {
+    display: inline-block;
+    padding: 0 5px;
+    background-color: #555;
+    color: white;
+    border-radius: 3px;
+    margin: 0 3px 3px 0;
+  }
+}
+.icon {
+  cursor: pointer;
+  border-left: 1px solid white;
+  margin-left: 3px;
+  padding-left: 5px;
+}
 </style>
