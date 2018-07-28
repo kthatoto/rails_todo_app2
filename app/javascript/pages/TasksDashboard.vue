@@ -37,7 +37,8 @@ export default {
     store.dispatch(SET_ALL, {
       todos: this.props.todos,
       dones: this.props.dones,
-      users: this.props.users
+      users: this.props.users,
+      labels: this.props.labels
     })
     this.todos = store.getters.getTodos
     this.dones = store.getters.getDones

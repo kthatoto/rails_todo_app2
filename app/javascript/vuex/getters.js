@@ -7,5 +7,8 @@ export default {
   },
   getUsers (state) {
     return state.users
+  },
+  getLabels (state) {
+    return state.labels
   }
 }
