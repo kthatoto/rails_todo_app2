@@ -1,4 +1,7 @@
 user = User.create!(name: 'kthatoto', password: 'password')
+4.times do |i|
+  User.create!(name: "user#{i + 1}", password: 'password')
+end
 labels = []
 3.times do |i|
   labels << Label.create!(name: "Label#{i + 1}")
