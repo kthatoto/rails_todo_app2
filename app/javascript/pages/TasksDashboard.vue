@@ -16,7 +16,7 @@
 
 <script>
 import store from '@/vuex/store'
-import { SET_TASKS } from '@/vuex/mutations'
+import { SET_ALL } from '@/vuex/mutations'
 
 import NewTaskForm from '@/components/organisms/taskForms/NewTaskForm'
 import TaskList from '@/components/organisms/TaskList'
@@ -34,9 +34,10 @@ export default {
     }
   },
   created () {
-    store.dispatch(SET_TASKS, {
+    store.dispatch(SET_ALL, {
       todos: this.props.todos,
-      dones: this.props.dones
+      dones: this.props.dones,
+      users: this.props.users
     })
     this.todos = store.getters.getTodos
     this.dones = store.getters.getDones
