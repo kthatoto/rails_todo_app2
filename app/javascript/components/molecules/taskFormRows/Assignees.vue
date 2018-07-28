@@ -6,7 +6,7 @@ tr
     datalist(id="assigneeList")
       option(v-for="user in users" :key="user.id" :value="user.name")
     ul
-      li(v-for="(assignee, i) in assignees" :key="assignee.id" class="assignees__item")
+      li.assignees__item(v-for="(assignee, i) in assignees" :key="assignee.id")
         | {{ assignee.name }}
         icon.icon(name="times" @click.native="removeAssignee(i)")
 </template>

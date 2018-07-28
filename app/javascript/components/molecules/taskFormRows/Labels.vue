@@ -6,7 +6,7 @@ tr
     datalist(id="labelList")
       option(v-for="label in labels" :key="label.id" :value="label.name")
     ul
-      li(v-for="(label, i) in addingLabels" :key="label" class="labels__item")
+      li.labels__item(v-for="(label, i) in addingLabels" :key="label")
         | {{ label }}
         icon.icon(name="times" @click.native="removeLabel(i)")
 </template>
