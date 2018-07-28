@@ -1,7 +1,7 @@
 <template lang="pug">
 task-form.editTaskForm
   h2
-    | Edit Task 
+    | Edit Task
     span.editTaskForm__id {{ `(#${task.id})` }}
   icon.icon.hideButton(name="times" @click.native="hideForm")
   table
