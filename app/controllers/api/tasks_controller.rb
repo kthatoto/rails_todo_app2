@@ -41,6 +41,11 @@ class Api::TasksController < ApplicationController
       render json: {error: :update_failed}, status: 400
     end
   end
+  def destory
+    task = Task.find(params[:id])
+    task.destroy
+    render json: nil, status: 204
+  end
   private
     def task_params
       params.permit(:content, :status)
