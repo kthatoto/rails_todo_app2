@@ -59,6 +59,9 @@ export default {
 .editTaskForm {
   position: relative;
   width: 100%;
+  h2 {
+    font-size: 1.4rem;
+  }
   .hideButton {
     width: 20px;
     height: 20px;
