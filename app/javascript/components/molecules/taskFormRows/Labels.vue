@@ -6,7 +6,7 @@ tr
     datalist(id="labelList")
       option(v-for="label in labels" :key="label.id" :value="label.name")
     ul
-      li(v-for="label in addingLabels" :key="label.id") {{ label.name }}
+      li(v-for="label in addingLabels" :key="label") {{ label }}
 </template>
 <script>
 import store from '@/vuex/store'
@@ -19,7 +19,7 @@ export default {
     }
   },
   created () {
-    // this.labels = store.getters.getLabels
+    this.labels = store.getters.getLabels
   },
   methods: {
     addLabel (e) {
@@ -31,12 +31,13 @@ export default {
         return
       }
       this.addingLabels.push(this.labelName)
+      console.log(this.addingLabels)
       this.labelName = ''
     }
   },
   watch: {
-    assignees () {
-      this.$emit('update', this.assignees.map(assignee => assignee.id))
+    addingLabels () {
+      this.$emit('update', this.addingLabels)
     }
   }
 }
