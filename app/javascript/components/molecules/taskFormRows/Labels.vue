@@ -37,7 +37,6 @@ export default {
         return
       }
       this.addingLabels.push(this.labelName)
-      console.log(this.addingLabels)
       this.labelName = ''
     },
     removeLabel (i) {
