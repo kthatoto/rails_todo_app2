@@ -13,7 +13,6 @@
     task-list.taskList(type="todo" :tasks="todos")
     task-list.taskList(type="done" :tasks="dones")
 </template>
-
 <script>
 import store from '@/vuex/store'
 import { SET_ALL } from '@/vuex/mutations'
@@ -25,17 +24,18 @@ export default {
   components: { NewTaskForm, TaskList, Button },
   props: ['props'],
   computed: {
-    ctodos () {
+    todos () {
       return store.getters.getTodos
+    },
+    dones () {
+      return store.getters.getDones
     }
   },
   data () {
     return {
       showing: {
         newTaskForm: true
-      },
-      todos: [],
-      dones: []
+      }
     }
   },
   created () {
@@ -45,8 +45,6 @@ export default {
       users: this.props.users,
       labels: this.props.labels
     })
-    this.todos = store.getters.getTodos
-    this.dones = store.getters.getDones
   },
   methods: {
     showNewTaskForm () {
