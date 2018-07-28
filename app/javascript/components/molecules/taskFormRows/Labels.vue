@@ -47,7 +47,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .labels {
   &__item {
     display: inline-block;
