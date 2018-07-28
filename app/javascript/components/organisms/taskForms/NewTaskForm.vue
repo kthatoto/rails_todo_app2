@@ -33,6 +33,16 @@ export default {
       if (this.labels.length === 0) {
         return
       }
+      axios({
+        method: 'POST',
+        url: '/api/tasks',
+        data: {
+          content: this.content,
+          assigneeIds: this.assigneeIds,
+          labels: this.labels
+        }
+      }).then(response => {
+      })
     }
   }
 }
