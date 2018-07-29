@@ -16,6 +16,7 @@
 <script>
 import store from '@/vuex/store'
 import { SET_ALL } from '@/vuex/mutations'
+import { mapGetters } from 'vuex'
 
 import NewTaskForm from '@/components/organisms/taskForms/NewTaskForm'
 import TaskList from '@/components/organisms/TaskList'
@@ -23,14 +24,10 @@ import Button from '@/components/atoms/Button'
 export default {
   components: { NewTaskForm, TaskList, Button },
   props: ['props'],
-  computed: {
-    todos () {
-      return store.getters.getTodos
-    },
-    dones () {
-      return store.getters.getDones
-    }
-  },
+  computed: mapGetters({
+    todos: 'getTodos',
+    dones: 'getDones'
+  }),
   data () {
     return {
       showing: {
