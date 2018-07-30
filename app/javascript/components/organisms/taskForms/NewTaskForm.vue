@@ -3,9 +3,9 @@ task-form.newTaskForm
   h2 New Task
   icon.icon.hideButton(name="times" @click.native="hideForm")
   table
-    content-row(@update="newContent => content = newContent")
-    assignees-row(@update="newIds => assigneeIds = newIds")
-    labels-row(@update="newLabels => labels = newLabels")
+    content-row(@update="newContent => content = newContent" :propContent="content")
+    assignees-row(@update="newIds => assigneeIds = newIds" :propAssigneeIds="assigneeIds")
+    labels-row(@update="newLabels => labels = newLabels" :propLabels="labels")
   .buttons
     Button(:proc="createTask()" body="Create")
 </template>
@@ -49,9 +49,15 @@ export default {
             labels: this.labels
           }
         }).then(response => {
+          this.initForm()
           store.dispatch(CREATE_TASK, response.data.task)
         })
       }
+    },
+    initForm () {
+      this.content = ''
+      this.assigneeIds = []
+      this.labels = []
     },
     hideForm () {
       this.$parent.showing.newTaskForm = false

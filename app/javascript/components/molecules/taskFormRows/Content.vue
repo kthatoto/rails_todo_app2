@@ -20,6 +20,11 @@ export default {
   watch: {
     content () {
       this.$emit('update', this.content)
+    },
+    propContent () {
+      if (this.content !== this.propContent) {
+        this.content = this.propContent
+      }
     }
   }
 }

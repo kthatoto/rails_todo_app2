@@ -24,10 +24,13 @@ export default {
   created () {
     this.labels = store.getters.getLabels
     if (this.propLabels) {
-      this.addingLabels = this.propLabels
+      this.initLabels()
     }
   },
   methods: {
+    initLabels () {
+      this.addingLabels = this.propLabels
+    },
     addLabel (e) {
       if (!(e.keyCode === 13) || this.labelName.length === 0) {
         return
@@ -41,11 +44,14 @@ export default {
     },
     removeLabel (i) {
       this.addingLabels.splice(i, 1)
+    },
+    emit () {
+      this.$emit('update', this.addingLabels)
     }
   },
   watch: {
-    addingLabels () {
-      this.$emit('update', this.addingLabels)
+    propLabels () {
+      this.initLabels()
     }
   }
 }

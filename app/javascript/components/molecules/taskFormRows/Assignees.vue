@@ -24,12 +24,15 @@ export default {
   created () {
     this.users = store.getters.getUsers
     if (this.propAssigneeIds) {
-      this.assignees = this.propAssigneeIds.map(assigneeId => {
-        return this.users.find(user => user.id === assigneeId)
-      })
+      this.initAssignees()
     }
   },
   methods: {
+    initAssignees () {
+      this.assignees = this.propAssigneeIds.map(assigneeId => {
+        return this.users.find(user => user.id === assigneeId)
+      })
+    },
     addAssignee (e) {
       if (!(e.keyCode === 13) || this.assigneeName.length === 0) {
         return
@@ -45,14 +48,19 @@ export default {
       }
       this.assignees.push(targetUser)
       this.assigneeName = ''
+      this.emit()
     },
     removeAssignee (i) {
       this.assignees.splice(i, 1)
+      this.emit()
+    },
+    emit () {
+      this.$emit('update', this.assignees.map(assignee => assignee.id))
     }
   },
   watch: {
-    assignees () {
-      this.$emit('update', this.assignees.map(assignee => assignee.id))
+    propAssigneeIds () {
+      this.initAssignees()
     }
   }
 }
