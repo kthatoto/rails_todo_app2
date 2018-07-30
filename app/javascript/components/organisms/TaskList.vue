@@ -3,6 +3,7 @@
   h2.taskList__header
     icon.icon.-left.-large(:name="icon[type]")
     | {{ header[type] }}
+    span.taskList__count {{ tasks.length }}
   ul.taskList__list
     li.taskList__item(v-for="task in tasks" :key="task.id")
       task-item(:task="task" :editTask="editTask")
@@ -42,6 +43,9 @@ export default {
     color: #eee;
     background-color: #444;
     padding: 10px 15px;
+    .icon {
+      vertical-align: -2px;
+    }
   }
   &__list {
     background-color: #bbb;
@@ -51,6 +55,15 @@ export default {
   }
   &__item {
     margin-bottom: 10px;
+  }
+  &__count {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    background-color: #ddd;
+    color: #555;
+    padding: 3px 5px;
+    border-radius: 10px;
+    vertical-align: 2px;
   }
 }
 </style>
