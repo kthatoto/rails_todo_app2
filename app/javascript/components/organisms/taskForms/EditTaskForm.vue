@@ -14,7 +14,7 @@ task-form.editTaskForm
 </template>
 <script>
 import store from '@/vuex/store'
-import { DELETE_TASK } from '@/vuex/mutations'
+import { UPDATE_TASK, DELETE_TASK } from '@/vuex/mutations'
 
 import TaskForm from '@/components/molecules/Form'
 import ContentRow from '@/components/molecules/taskFormRows/Content'
@@ -59,6 +59,8 @@ export default {
             labels: this.labels
           }
         }).then(response => {
+          store.dispatch(UPDATE_TASK, response.data.task)
+          this.hideForm()
         })
       }
     },

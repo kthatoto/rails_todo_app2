@@ -24,6 +24,14 @@ const mutations = {
       ...state.todos
     ]
   },
+  [mutationTypes.UPDATE_TASK] (state, task) {
+    if (task.status === 'todo') {
+      state.todos = state.todos.map(todo => {
+        return (todo.id === task.id) ? task : todo
+      })
+    } else if (task.status === 'dones') {
+    }
+  },
   [mutationTypes.DELETE_TASK] (state, taskInfo) {
     if (taskInfo.type === 'todo') {
       state.todos = state.todos.filter(todo => todo.id !== taskInfo.id)
