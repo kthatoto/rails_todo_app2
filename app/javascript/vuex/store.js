@@ -32,6 +32,23 @@ const mutations = {
     } else if (task.status === 'dones') {
     }
   },
+  [mutationTypes.TOGGLE_TASK_STATUS] (state, taskInfo) {
+    if (taskInfo.from === 'todo' && taskInfo.to === 'done') {
+      const task = taskInfo.task
+      state.todos = state.todos.filter(todo => todo.id !== task.id)
+      state.dones = [
+        task,
+        ...state.dones
+      ]
+    } else if (taskInfo.from === 'done' && taskInfo.to === 'todo') {
+      const task = taskInfo.task
+      state.dones = state.dones.filter(done => done.id !== task.id)
+      state.todos = [
+        task,
+        ...state.todos
+      ]
+    }
+  },
   [mutationTypes.DELETE_TASK] (state, taskInfo) {
     if (taskInfo.type === 'todo') {
       state.todos = state.todos.filter(todo => todo.id !== taskInfo.id)

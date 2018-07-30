@@ -9,6 +9,9 @@ export default {
   updateTask ({ commit }, task) {
     commit(mutationTypes.UPDATE_TASK, task)
   },
+  toggleTaskStatus ({ commit }, taskInfo) {
+    commit(mutationTypes.TOGGLE_TASK_STATUS, taskInfo)
+  },
   deleteTask ({ commit }, taskInfo) {
     commit(mutationTypes.DELETE_TASK, taskInfo)
   }
