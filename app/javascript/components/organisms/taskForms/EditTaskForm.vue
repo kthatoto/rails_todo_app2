@@ -9,8 +9,8 @@ task-form.editTaskForm
     assignees-row(@update="newIds => assigneeIds = newIds" :propAssigneeIds="assigneeIds")
     labels-row(@update="newLabels => labels = newLabels" :propLabels="labels")
   .buttons
-    Button(:proc="deleteTask()" body="Delete")
-    Button(:proc="updateTask()" body="Update")
+    Button.button(:proc="deleteTask()" body="Delete")
+    Button.button(:proc="updateTask()" body="Update")
 </template>
 <script>
 import store from '@/vuex/store'
@@ -104,6 +104,11 @@ export default {
     color: #999;
     font-size: 1.1rem;
     font-weight: normal;
+  }
+}
+.buttons {
+  .button {
+    margin: 0 3px;
   }
 }
 </style>
