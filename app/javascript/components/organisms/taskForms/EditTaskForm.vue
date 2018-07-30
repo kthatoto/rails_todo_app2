@@ -13,6 +13,9 @@ task-form.editTaskForm
     Button(:proc="updateTask()" body="Update")
 </template>
 <script>
+import store from '@/vuex/store'
+import { DELETE_TASK } from '@/vuex/mutations'
+
 import TaskForm from '@/components/molecules/Form'
 import ContentRow from '@/components/molecules/taskFormRows/Content'
 import AssigneesRow from '@/components/molecules/taskFormRows/Assignees'
@@ -66,6 +69,10 @@ export default {
             method: 'DELETE',
             url: '/api/tasks/' + this.task.id
           }).then(response => {
+            store.dispatch(DELETE_TASK, {
+              id: this.task.id,
+              type: this.task.status
+            })
           })
         }
       }

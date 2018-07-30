@@ -5,5 +5,8 @@ export default {
   },
   createTask ({ commit }, task) {
     commit(mutationTypes.CREATE_TASK, task)
+  },
+  deleteTask ({ commit }, taskInfo) {
+    commit(mutationTypes.DELETE_TASK, taskInfo)
   }
 }

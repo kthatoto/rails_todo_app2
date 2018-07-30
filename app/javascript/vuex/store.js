@@ -23,6 +23,12 @@ const mutations = {
       task,
       ...state.todos
     ]
+  },
+  [mutationTypes.DELETE_TASK] (state, taskInfo) {
+    if (taskInfo.type === 'todo') {
+      state.todos = state.todos.filter(todo => todo.id !== taskInfo.id)
+    } else if ( taskInfo.type === 'dones') {
+    }
   }
 }
 const store = new Vuex.Store({ state, mutations, getters, actions })
